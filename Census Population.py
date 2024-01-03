@@ -4,12 +4,12 @@
 #Date: 11/5/15
 
 def getPopAge14(): #Finds the total population in age group 0-14
-    myfile= open("WorldCensusAges0-14.csv")
-    pop=[] #Empty list to store the total poplation of this age group for each country. Note total will be in the same order as countries so they will be paired correctly if both the name and population is called
-    for line in myfile: #Goes through each line ine the file
-        fields=line.split(",") #Breaks each line into lists. 0th element being the country name, 1st element being male population, and 2nd element being the female population
-        sum1=int(fields[1]) + int(fields[2]) #Since the populations for male and female are string in this age group, you must convert them into integers and combined for the total population
-        pop.append(sum1) #Each total will be added to the empty list
+    with open("WorldCensusAges0-14.csv") as myfile:
+        pop=[] #Empty list to store the total poplation of this age group for each country. Note total will be in the same order as countries so they will be paired correctly if both the name and population is called
+        for line in myfile: #Goes through each line ine the file
+            fields=line.split(",") #Breaks each line into lists. 0th element being the country name, 1st element being male population, and 2nd element being the female population
+            sum1=int(fields[1]) + int(fields[2]) #Since the populations for male and female are string in this age group, you must convert them into integers and combined for the total population
+            pop.append(sum1) #Each total will be added to the empty list
     return pop #The list is stored in the function
 
 def getPopAge15():#Finds the total population in age group 15-64
